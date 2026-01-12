@@ -1,0 +1,9 @@
+{
+  "name": "tester",
+  "id": 123,
+  "skills": ["selenium","python","java","pytest","api"],
+  "address": {
+    "d-no": "1-423/2",
+    "street": ""
+  }
+}
