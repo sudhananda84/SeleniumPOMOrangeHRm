@@ -16,24 +16,29 @@ env_info = json.load(env_file)
 env_file.close()
 env_details = env_info[env_name]
 """
+from selenium import webdriver
+
+from selenium.webdriver.chrome.options import Options
+
+
 def test_sample_tc1():
-    browser_name = "chrome"
-    if browser_name == "chrome":
-        driver = Chrome()
-    elif browser_name == "firefox":
-        driver = Firefox()
-    elif browser_name == "edge":
-        driver = Edge()
-    else:
-        driver = Safari()
+    options = Options()
 
-    driver.get("https://google.com")
-    print(driver.title)
-    time.sleep(10)
+    options.add_argument("--headless")
+
+    driver = webdriver.Remote(
+
+        command_executor='http://host.docker.internal:4444/wd/hub',
+
+        options=options
+
+    )
+
+    driver.get("https://www.google.com")
+
+    assert "Google" in driver.title
+
     driver.quit()
-
-
-
 
 """
 options = Options()
