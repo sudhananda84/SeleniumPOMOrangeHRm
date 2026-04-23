@@ -5,7 +5,7 @@ from selenium.webdriver import Firefox
 from selenium.webdriver import Edge
 from selenium.webdriver import Safari
 from selenium.webdriver.chrome.options import Options
-
+"""
 with open(r"../config/execution_config.json","r" ) as f:
     execution_info = json.load(f)
 
@@ -15,19 +15,22 @@ env_file = open(f"../config/env_info.json","r")
 env_info = json.load(env_file)
 env_file.close()
 env_details = env_info[env_name]
+"""
+def test_sample_tc1():
+    browser_name = "chrome"
+    if browser_name == "chrome":
+        driver = Chrome()
+    elif browser_name == "firefox":
+        driver = Firefox()
+    elif browser_name == "edge":
+        driver = Edge()
+    else:
+        driver = Safari()
 
-if browser_name == "chrome":
-    driver = Chrome()
-elif browser_name == "firefox":
-    driver = Firefox()
-elif browser_name == "edge":
-    driver = Edge()
-else:
-    driver = Safari()
-
-driver.get(env_details["url"])
-print(driver.title)
-time.sleep(10)
+    driver.get("https://google.com")
+    print(driver.title)
+    time.sleep(10)
+    driver.quit()
 
 
 
