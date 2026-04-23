@@ -5,7 +5,11 @@ pipeline {
             args '-u root'
         }
     }
+    parameters {
 
+        string(name: 'APP_URL', defaultValue: 'https://opensource-demo.orangehrmlive.com', description: 'App URL')
+
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -21,7 +25,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'pytest --html=report.html || true'
+                sh "pytest --app-url=${APP_URL} --html=report.html || true"
             }
         }
 

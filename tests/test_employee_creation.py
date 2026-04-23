@@ -21,7 +21,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-def test_sample_tc1():
+def test_sample_tc1(app_url):
     options = Options()
 
     options.add_argument("--headless")
@@ -34,9 +34,9 @@ def test_sample_tc1():
 
     )
 
-    driver.get("https://www.google.com")
+    driver.get(app_url)
 
-    assert "Google" in driver.title
+    assert "OrangeHRM" in driver.title
 
     driver.quit()
 
