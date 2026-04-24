@@ -1,9 +1,24 @@
 {
-  "name": "tester",
+
+  "employees": [
+    {
+      "name": "tester",
   "id": 123,
   "skills": ["selenium","python","java","pytest","api"],
   "address": {
     "d-no": "1-423/2",
     "street": ""
   }
+    },
+     {
+      "name": "tester12",
+  "id": 1234,
+  "skills": ["selenium","python","pytest","api"],
+  "address": {
+    "d-no": "1-423/2",
+    "street": ""
+  }
+    }
+  ]
+
 }
